@@ -5,7 +5,7 @@ import { success, getContent, AuthenticationError } from "iyasunday";
 
 export async function create(req) {
   try {
-    const {post, image} = req.body;
+    const {post, longitude, latitude, media} = req.body;
     
     const getUser = await getContent({
       url: process.env.USERMGT + '/user',
@@ -17,7 +17,9 @@ export async function create(req) {
 
     let newPost = new Post();
     newPost.post = post;
-    newPost.image = image;
+    newPost.media = media;
+    newPost.longitude = longitude;
+    newPost.latitude = latitude;
     newPost.user = getUser.data._id;
     newPost.username = getUser.data.username;
     await newPost.save();
