@@ -55,7 +55,7 @@ export async function update(body) {
 export async function viewAll(body){
 
   try {
-    const viewComments = await Comment.find({ postID: body.postid}).select('comment username createdAt');
+    const viewComments = await Comment.findOne({ postID: body.postid}).select('comment username createdAt');
     if (!viewComments) {
       throw new ExistsError("Comment not found");
     }

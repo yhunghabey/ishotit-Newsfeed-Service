@@ -4,21 +4,24 @@ import { date } from 'joi';
 // const { Schema } = mongoose;
 
 
-const CommentsSchema = mongoose.Schema({
-  commentID: {
-    type: String,
-  },
-  postID: {
-    type: mongoose.Schema.ObjectId,
-  },
+const HelpDeskSchema = mongoose.Schema({
   user: String,
 
   username: {
     type: String,
   },
 
-  comment: {
+  subject: {
+    type: String,
+  },
+
+  message: {
     type: String
+  },
+
+  status: {
+    type: String,
+    enum: ['REPORT', 'QUESTION', 'ISSUE', 'ENQUIRY'],
   },
 
   createdAt: {
@@ -34,7 +37,7 @@ const CommentsSchema = mongoose.Schema({
   
 
 
-export default mongoose.model('Comments', CommentsSchema);
+export default mongoose.model('helpdesk', HelpDeskSchema);
 
 
 

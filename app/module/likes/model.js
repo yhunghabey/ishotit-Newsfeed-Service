@@ -4,12 +4,12 @@ import { date } from 'joi';
 // const { Schema } = mongoose;
 
 
-const CommentsSchema = mongoose.Schema({
-  commentID: {
+const LikeSchema = mongoose.Schema({
+  likeID: {
     type: String,
   },
   postID: {
-    type: mongoose.Schema.ObjectId,
+    type: String,
   },
   user: String,
 
@@ -17,24 +17,16 @@ const CommentsSchema = mongoose.Schema({
     type: String,
   },
 
-  comment: {
-    type: String
-  },
-
   createdAt: {
       type: Date,
       default: Date.now,
   },
-  deleted: {
-    type: Boolean,
-    default: false,
-    select: false,
-  },
+
 });
   
 
 
-export default mongoose.model('Comments', CommentsSchema);
+export default mongoose.model('likes', LikeSchema);
 
 
 

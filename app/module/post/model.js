@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-import { date } from 'joi';
-import bcrypt from 'bcrypt';
+import comments from '../comment/model';
 
 // const { Schema } = mongoose;
 
@@ -26,8 +25,9 @@ const PostSchema = mongoose.Schema({
   latitude: {
     type: String,
   },
-  commentCount: Number,
 
+  commentCount: Number,
+  likeCount: Number,
   createdAt: {
       type: Date,
       default: Date.now,
@@ -41,7 +41,7 @@ const PostSchema = mongoose.Schema({
   
 
 
-export default mongoose.model('post', PostSchema);
+export default mongoose.model('Post', PostSchema);
 
 
 
