@@ -12,6 +12,11 @@ export async function create(req) {
       },
       url: process.env.USERMGT + '/user',
     });
+
+    //check if the user has liked before
+    const check = await Like.findOne({user: getUser.data._id});
+    if(check) throw new ExistsError("User Already liked this post");
+
     let newLike = new Like();
     newLike.postID = postid;
     newLike.user = getUser.data._id;
@@ -26,7 +31,7 @@ export async function create(req) {
     });
     return {
       success,
-      message: `A post has been Liked successfully.`,
+      message: `This post has been Liked successfully.`,
       data: newLike,
     };
   } catch (err) {
