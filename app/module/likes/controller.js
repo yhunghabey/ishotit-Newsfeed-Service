@@ -16,6 +16,14 @@ export async function getAll(req,res,next){
     }
 }
 
+export async function getUsersLikes(req,res,next){
+    try {
+        return res.status(200).json(await service.getUsersLikes(req.body))
+    } catch (err) {
+        next(err);
+    }
+}
+
 export async function remove(req,res,next){
     try {
         return res.status(200).json(await service.remove(req.user,  req.body))

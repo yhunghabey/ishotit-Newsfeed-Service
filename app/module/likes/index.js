@@ -19,6 +19,13 @@ route.get(
     joiValidator(validation.getAll),
     controller.getAll);
 
+route.get(
+    '/users/likes',
+    guard(),
+    joiValidator(validation.getUsersLikes),
+    controller.getUsersLikes
+);
+
 route.delete(
     '/like/remove',
     guard(),

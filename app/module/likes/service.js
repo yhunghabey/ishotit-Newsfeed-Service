@@ -52,6 +52,23 @@ export async function getAll(body){
   }
 }
 
+export async function getUsersLikes(body){
+
+  try {
+    const getUsersLikes = await Like.findOne({ postID: body.postid }).select('username');
+    if (!getUsersLikes) {
+      throw new ExistsError("No User Likes This Post");
+    }
+    return {
+      success,
+      data: getUsersLikes,
+      message: `All Users that Likes a post is Retrieved Successfully`,
+    };
+  } catch (err) {
+    throw err;
+  }
+}
+
 export async function remove(user, body){
   try {
     const deleteLike = await Like.findOneAndDelete({ postID: body.postid, user: user.id });

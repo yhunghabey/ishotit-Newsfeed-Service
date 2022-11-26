@@ -31,6 +31,16 @@ export default{
         },
       },
 
+      getUsersLikes: {
+        body: {
+          schema: Joi.object({
+            postid: Joi.string().min(20)
+            .max(36)
+            .trim(),
+          }),
+        },
+      },
+
       remove: {
         body: {
           schema: Joi.object({
