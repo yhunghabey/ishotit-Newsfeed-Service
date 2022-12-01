@@ -20,7 +20,7 @@ route.get(
     controller.getAll);
 
 route.get(
-    '/users/likes',
+    '/users/likes/:id',
     guard(),
     joiValidator(validation.getUsersLikes),
     controller.getUsersLikes

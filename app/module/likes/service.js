@@ -57,10 +57,9 @@ export async function getAll(body){
   }
 }
 
-export async function getUsersLikes(body){
-
+export async function getUsersLikes(params){
   try {
-    const getUsersLikes = await Like.findOne({ postID: body.postid }).select('username');
+    const getUsersLikes = await Like.findOne({ postID: params.id }).select('username');
     if (!getUsersLikes) {
       throw new ExistsError("No User Likes This Post");
     }

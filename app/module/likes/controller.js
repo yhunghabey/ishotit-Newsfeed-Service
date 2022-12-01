@@ -18,7 +18,7 @@ export async function getAll(req,res,next){
 
 export async function getUsersLikes(req,res,next){
     try {
-        return res.status(200).json(await service.getUsersLikes(req.body))
+        return res.status(200).json(await service.getUsersLikes(req.params))
     } catch (err) {
         next(err);
     }
