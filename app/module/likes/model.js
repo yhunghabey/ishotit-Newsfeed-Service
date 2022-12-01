@@ -18,9 +18,14 @@ const LikeSchema = mongoose.Schema({
   },
 
   createdAt: {
-      type: Date,
-      default: Date.now,
+    type: Date,
+    default: Date.now,
   },
+  status: {
+    type: String,
+    enum: ['LIKED', 'UNLIKED'],
+    default: 'UNLIKED'
+  }
 
 });
   

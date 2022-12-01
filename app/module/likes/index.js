@@ -25,7 +25,12 @@ route.get(
     joiValidator(validation.getUsersLikes),
     controller.getUsersLikes
 );
-
+route.get(
+    '/like/status',
+    guard(),
+    // joiValidator(validation.getUsersLikes),
+    controller.likeStatus
+);
 route.delete(
     '/like/remove',
     guard(),

@@ -14,13 +14,14 @@ export async function create(req) {
     });
 
     //check if the user has liked before
-    const check = await Like.findOne({user: getUser.data._id});
+    const check = await Like.findOne({user: getUser.data._id, postID: postid});
     if(check) throw new ExistsError("User Already liked this post");
 
     let newLike = new Like();
     newLike.postID = postid;
     newLike.user = getUser.data._id;
     newLike.username = getUser.data.username;
+    newLike.status = 'LIKED';
     await newLike.save();
     
     //check if a like exist on the post before
@@ -88,6 +89,22 @@ export async function remove(user, body){
       success,
       data: deleteLike,
       message: `Like Removed Successfully`,
+    };
+  } catch (err) {
+    throw err;
+  }
+}
+
+export async function likeStatus(user, body){
+  try {
+    const likeStatus = await Like.findOne({ user: user.id, postID: body.postid });
+    if (!likeStatus) {
+      throw new ExistsError("You Have Not Liked This Post");
+    }
+    return {
+      success,
+      data: likeStatus,
+      message: `Like Status Retrieved Successfully`,
     };
   } catch (err) {
     throw err;
