@@ -20,8 +20,9 @@ export async function create(req) {
     newPost.media = media;
     newPost.longitude = longitude;
     newPost.latitude = latitude;
-    newPost.user = getUser.data._id;
-    newPost.username = getUser.data.username;
+    newPost.userInfo.userID = getUser.data._id;
+    newPost.userInfo.username = getUser.data.username;
+    newPost.userInfo.photo = getUser.data.photo;
     await newPost.save();
 
     return {

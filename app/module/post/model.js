@@ -1,3 +1,4 @@
+import { string } from 'joi';
 import mongoose from 'mongoose';
 import comments from '../comment/model';
 
@@ -11,10 +12,11 @@ const PostSchema = mongoose.Schema({
   post: {
     type: String,
   },
-  user: String,
-
-  username: {
-    type: String,
+ 
+  userInfo: {
+    username: String,
+    userID: String,
+    photo: String,
   },
   media: {
     type: Array,
