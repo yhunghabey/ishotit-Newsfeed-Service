@@ -11,10 +11,11 @@ const CommentsSchema = mongoose.Schema({
   postID: {
     type: mongoose.Schema.ObjectId,
   },
-  user: String,
 
-  username: {
-    type: String,
+  userInfo: {
+    username: String,
+    userId: String,
+    photo: String,
   },
 
   comment: {

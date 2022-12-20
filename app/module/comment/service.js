@@ -16,8 +16,9 @@ export async function create(req) {
     let newComment = new Comment();
     newComment.comment = comment;
     newComment.postID = postid;
-    newComment.user = getUser.data._id;
-    newComment.username = getUser.data.username;
+    newComment.userInfo.userId = getUser.data._id;
+    newComment.userInfo.username = getUser.data.username;
+    newComment.userInfo.photo = getUser.data.photo;
     await newComment.save();
     
     //increment the comment count
@@ -55,7 +56,7 @@ export async function update(body) {
 export async function viewAll(body){
 
   try {
-    const viewComments = await Comment.find({ postID: body.postid}).select('comment username createdAt');
+    const viewComments = await Comment.find({ postID: body.postid}).select('comment userInfo.photo userInfo.userId userInfo.username createdAt');
     if (!viewComments) {
       throw new ExistsError("Comment not found");
     }
