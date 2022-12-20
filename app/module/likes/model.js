@@ -11,7 +11,11 @@ const LikeSchema = mongoose.Schema({
   postID: {
     type: String,
   },
-  user: String,
+  userInfo: {
+    username: String,
+    userId: String,
+    photo: String,
+  },
 
   username: {
     type: String,

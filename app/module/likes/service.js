@@ -19,8 +19,9 @@ export async function create(req) {
 
     let newLike = new Like();
     newLike.postID = postid;
-    newLike.user = getUser.data._id;
-    newLike.username = getUser.data.username;
+    newLike.userInfo.userId = getUser.data._id;
+    newLike.userInfo.photo = getUser.data.photo;
+    newLike.userInfo.username = getUser.data.username;
     newLike.status = 'LIKED';
     await newLike.save();
     
@@ -44,7 +45,7 @@ export async function create(req) {
 export async function getAll(body){
 
   try {
-    const viewLikes = await Post.findOne({ _id: body.postid}).select('likeCount');
+    const viewLikes = await Post.findOne({ _id: body.postid}).select('likeCount userInfo.username userInfo.photo');
     if (!viewLikes) {
       throw new ExistsError("No Likes");
     }
@@ -60,7 +61,7 @@ export async function getAll(body){
 
 export async function getUsersLikes(params){
   try {
-    const getUsersLikes = await Like.findOne({ postID: params.id }).select('username');
+    const getUsersLikes = await Like.findOne({ postID: params.id }).select('userInfo.username userInfo.photo userInfo.userId');
     if (!getUsersLikes) {
       throw new ExistsError("No User Likes This Post");
     }
