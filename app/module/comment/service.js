@@ -1,7 +1,6 @@
 import Post from "../post/model";
 import Comment from "../comment/model";
 import { success, ExistsError, getContent, AuthenticationError } from "iyasunday";
-import bcrypt from 'bcrypt';
 
 
 export async function create(req) {

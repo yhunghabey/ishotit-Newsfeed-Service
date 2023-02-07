@@ -25,7 +25,7 @@ route.get(
     joiValidator(validation.getUsersLikes),
     controller.getUsersLikes
 );
-route.get(
+route.post(
     '/like/status',
     guard(),
     // joiValidator(validation.getUsersLikes),
