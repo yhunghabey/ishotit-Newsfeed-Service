@@ -10,7 +10,7 @@ export async function create(req,res,next){
 
 export async function getAll(req,res,next){
     try {
-        return res.status(200).json(await service.getAll(req.body))
+        return res.status(200).json(await service.getAll(req.params))
     } catch (err) {
         next(err);
     }

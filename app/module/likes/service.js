@@ -42,10 +42,10 @@ export async function create(req) {
 };
 
 
-export async function getAll(body){
+export async function getAll(params){
 
   try {
-    const viewLikes = await Post.findOne({ _id: body.postid}).select('likeCount userInfo.username userInfo.photo');
+    const viewLikes = await Post.findOne({ _id: params.postid}).select('likeCount userInfo.username userInfo.photo');
     if (!viewLikes) {
       throw new ExistsError("No Likes");
     }
