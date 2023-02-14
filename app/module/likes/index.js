@@ -14,7 +14,7 @@ route.post(
     controller.create);
 
 route.get(
-    '/likes',
+    '/likes/:id',
     guard(),
     joiValidator(validation.getAll),
     controller.getAll);
