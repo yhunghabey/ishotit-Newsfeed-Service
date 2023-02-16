@@ -45,7 +45,7 @@ export async function create(req) {
 export async function getAll(params){
 
   try {
-    const viewLikes = await Post.findOne({ _id: params.id}).select('likeCount userInfo.username userInfo.photo');
+    const viewLikes = await Post.find({ _id: params.id}).select('likeCount userInfo.username userInfo.photo');
     if (!viewLikes) {
       throw new ExistsError("No Likes");
     }
@@ -61,7 +61,8 @@ export async function getAll(params){
 
 export async function getUsersLikes(params){
   try {
-    const getUsersLikes = await Like.findOne({ postID: params.id }).select('userInfo.username userInfo.photo userInfo.userId');
+    const getUsersLikes = await Like.find({ postID: params.id }).select('userInfo.username userInfo.photo userInfo.userId');
+    console.log(getUsersLikes);
     if (!getUsersLikes) {
       throw new ExistsError("No User Likes This Post");
     }
