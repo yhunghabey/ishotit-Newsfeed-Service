@@ -24,6 +24,14 @@ export async function view(req,res,next){
     }
 }
 
+export async function allPostByUser(req,res,next){
+    try {
+        return res.status(200).json(await service.allPostByUser(req.user, req.body))
+    } catch (err) {
+        next(err);
+    }
+}
+
 export async function viewAll(req,res,next){
     try {
         return res.status(200).json(await service.viewAll())

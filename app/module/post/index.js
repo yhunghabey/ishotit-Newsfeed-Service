@@ -31,6 +31,12 @@ route.get(
     //joiValidator(validation.view),
     controller.viewAll);
 
+route.get(
+    '/user/posts',
+    guard(),
+    //joiValidator(validation.view),
+    controller.allPostByUser);
+
 route.delete(
     '/post/remove',
     guard(),

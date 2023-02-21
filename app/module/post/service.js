@@ -71,6 +71,24 @@ export async function view(body){
   }
 }
 
+export async function allPostByUser(user, body){
+
+  try {
+    const singleUserPosts = await Post.find({ "userInfo.userID": user.id });
+    console.log(singleUserPosts);
+    if (!singleUserPosts) {
+      throw new NotFoundError("Post not found");
+    }
+    return {
+      success,
+      data: singleUserPosts,
+      message: `All Post By a User Retrieved Successfully`,
+    };
+  } catch (err) {
+    throw err;
+  }
+}
+
 export async function viewAll(){
 
   try {
