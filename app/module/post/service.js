@@ -75,7 +75,6 @@ export async function allPostByUser(user, body){
 
   try {
     const singleUserPosts = await Post.find({ "userInfo.userID": user.id });
-    console.log(singleUserPosts);
     if (!singleUserPosts) {
       throw new NotFoundError("Post not found");
     }
