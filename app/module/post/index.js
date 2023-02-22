@@ -31,10 +31,14 @@ route.get(
     //joiValidator(validation.view),
     controller.viewAll);
 
+route.get(
+    '/posts/media',
+    guard(),
+    controller.viewAllPostMedia);    
+
 route.post(
     '/user/posts',
     guard(),
-    //joiValidator(validation.view),
     controller.allPostByUser);
 
 route.delete(

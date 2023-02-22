@@ -40,6 +40,14 @@ export async function viewAll(req,res,next){
     }
 }
 
+export async function viewAllPostMedia(req,res,next){
+    try {
+        return res.status(200).json(await service.viewAllPostMedia(req.user))
+    } catch (err) {
+        next(err);
+    }
+}
+
 export async function remove(req,res,next){
     try {
         return res.status(200).json(await service.remove(req.body))

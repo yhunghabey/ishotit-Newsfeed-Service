@@ -102,6 +102,21 @@ export async function viewAll(){
   }
 }
 
+export async function viewAllPostMedia(user){
+
+  try {
+    const viewAllPost = await Post.find({'userInfo.userID': user.id}).select('userInfo.photo');
+    if (!viewAllPost) throw new Error('No Media Found');
+    return {
+      success,
+      data: viewAllPost,
+      message: `All Post Media Retrieved Successfully`,
+    };
+  } catch (err) {
+    throw err;
+  }
+}
+
 export async function remove(body){
 
   try {
