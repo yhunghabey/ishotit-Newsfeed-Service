@@ -31,7 +31,7 @@ route.get(
     //joiValidator(validation.view),
     controller.viewAll);
 
-route.get(
+route.post(
     '/user/posts',
     guard(),
     //joiValidator(validation.view),

@@ -26,7 +26,7 @@ export async function view(req,res,next){
 
 export async function allPostByUser(req,res,next){
     try {
-        return res.status(200).json(await service.allPostByUser(req.user, req.body))
+        return res.status(200).json(await service.allPostByUser(req.body))
     } catch (err) {
         next(err);
     }

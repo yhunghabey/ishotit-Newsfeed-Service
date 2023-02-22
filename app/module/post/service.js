@@ -71,10 +71,10 @@ export async function view(body){
   }
 }
 
-export async function allPostByUser(user, body){
+export async function allPostByUser(body){
 
   try {
-    const singleUserPosts = await Post.find({ "userInfo.userID": user.id });
+    const singleUserPosts = await Post.find({ "userInfo.userID": body.userID });
     if (!singleUserPosts) {
       throw new NotFoundError("Post not found");
     }
