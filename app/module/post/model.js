@@ -18,9 +18,7 @@ const PostSchema = mongoose.Schema({
     userID: String,
     photo: String,
   },
-  media: {
-    type: Array,
-  },
+  media: Array,
   longitude: {
     type: String,
   },
