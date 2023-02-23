@@ -105,7 +105,7 @@ export async function viewAll(){
 export async function viewAllPostMedia(user){
 
   try {
-    const viewAllPost = await Post.find({'userInfo.userID': user.id}).select('userInfo.photo');
+    const viewAllPost = await Post.find({'userInfo.userID': user.id}).select('media');
     if (!viewAllPost) throw new Error('No Media Found');
     return {
       success,
