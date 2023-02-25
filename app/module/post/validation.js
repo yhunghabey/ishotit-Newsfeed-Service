@@ -6,7 +6,6 @@ export default{
         body: {
           schema: Joi.object({
             post: Joi.string().min(30).max(2000).required(),
-            media: Joi.array(),
             longitude: Joi.string(),
             latitude: Joi.string(),
           }),
