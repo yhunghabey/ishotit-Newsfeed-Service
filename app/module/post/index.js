@@ -10,7 +10,7 @@ const route = Router();
 route.post(
     '/post/create',
     guard(),
-    joiValidator(validation.create),
+    //joiValidator(validation.create),
     controller.create);
 
 route.patch(
