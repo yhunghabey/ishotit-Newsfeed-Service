@@ -23,6 +23,7 @@ export async function create(req) {
     newPost.userInfo.userID = getUser.data._id;
     newPost.userInfo.username = getUser.data.username;
     newPost.userInfo.photo = getUser.data.photo;
+    newPost.link = process.env.BASE_URL + '/' + getUser.data._id;
     await newPost.save();
 
     return {

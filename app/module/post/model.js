@@ -28,15 +28,15 @@ const PostSchema = mongoose.Schema({
 
   commentCount: Number,
   likeCount: Number,
-  createdAt: {
-      type: Date,
-      default: Date.now,
-  },
+  link: String,
   deleted: {
     type: Boolean,
     default: false,
     select: false,
   },
+},
+{
+  timestamps: true,
 });
   
 
