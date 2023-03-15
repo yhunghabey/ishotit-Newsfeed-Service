@@ -5,7 +5,7 @@ export default{
     create: {
         body: {
           schema: Joi.object({
-            post: Joi.string().min(30).max(2000).required(),
+            post: Joi.string().min(1).max(2000).required(),
             longitude: Joi.string(),
             latitude: Joi.string(),
           }),
@@ -18,7 +18,7 @@ export default{
             postid: Joi.string().min(20)
               .max(36)
               .trim(),
-            post: Joi.string().min(30).max(2000).required(),
+            post: Joi.string().min(1).max(2000).required(),
             media: Joi.string(),
           }),
         },

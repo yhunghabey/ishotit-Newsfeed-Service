@@ -5,7 +5,7 @@ export default{
     create: {
         body: {
           schema: Joi.object({
-            comment: Joi.string().min(30).max(2000).required(),
+            comment: Joi.string().min(1).max(2000).required(),
             postid: Joi.string().min(20)
               .max(36)
               .trim(),
@@ -19,7 +19,7 @@ export default{
             postid: Joi.string().min(20)
               .max(36)
               .trim(),
-             comment: Joi.string().min(10).max(2000),
+             comment: Joi.string().min(1).max(2000),
           }),
         },
       },

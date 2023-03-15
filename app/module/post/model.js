@@ -11,7 +11,6 @@ const PostSchema = mongoose.Schema({
   },
   post: {
     type: String,
-    minlength: 1
   },
  
   userInfo: {
