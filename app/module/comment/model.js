@@ -19,7 +19,8 @@ const CommentsSchema = mongoose.Schema({
   },
 
   comment: {
-    type: String
+    type: String,
+    minlength: 1,
   },
 
   createdAt: {
